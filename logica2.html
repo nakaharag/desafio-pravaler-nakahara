@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <p id="output"></p>
+      <script>
+		var y = 0, x = "";
+		massa_inicial = 10000
+		massa = massa_inicial;
+		x += "Massa Inicial: " + massa_inicial + "<br>";
+		var angra = window.setInterval(function() {
+		  massa = massa - (massa * 0.25);
+		  x += "Massa: " + massa + "<br>";
+		  document.getElementById("output").innerHTML = x;
+
+		  if (massa < (massa_inicial*0.10)){
+		  	x += "Material atingiu massa abaixo de 10% em " + y + " segundos";
+		  	document.getElementById("output").innerHTML = x;
+		  	window.clearInterval(angra);
+		  } else {
+		  	y = y + 30;
+		  }
+		}, 3000);
+      </script>
+   </body>
+</html>

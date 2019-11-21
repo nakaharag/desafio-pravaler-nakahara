@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt">
+   <meta charset="utf-8">
+   <head>
+      <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+      <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="arquivos/bootstrap.css">
+      <link rel="stylesheet" type="text/css" href="arquivos/site.css">
+      <title>Sistema de gerenciamento estudantil</title>
+   </head>
+   <body>
+      <div class="banner-top-interno">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-10 col-md-offset-4">
+                  <h1>Sistema Web</h1>
+               </div>
+            </div>
+         </div>
+      </div>
+      <br />
+      <div class="container">
+         <div class="row">
+            <ul class="nav nav-tabs">
+               <li class="active" ><a id="tabrepcli" data-toggle="tab" href="#instituicao">Instituição</a></li>
+               <li><a id="tabcur" data-toggle="tab" href="#curso">Curso</a></li>
+               <li><a id="tabalu" data-toggle="tab" href="#aluno">Aluno</a></li>
+            </ul>
+            <div class="tab-content">
+               <div id="instituicao" class="tab-pane fade in active">
+                  <div class="row">
+                     <br>
+                     <div class="col-md-12">
+                        <div class="pull-left">
+                           <p class = "admin_title">Cadastro de Instituição:</p>
+                        </div>
+                        <div class="pull-right">
+                           <button class="btn btn-primary" id="btn_add_nova_instituicao" data-toggle="modal" data-target="#modal">Adicionar nova instituição</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="table-responsive">
+                           <table id="instituicao_table" class="table table-bordered table-hover table-radius">
+                              <thead>
+                                 <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>CNPJ</th>
+                                    <th>Status</th>
+                                 </tr>
+                              </thead>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="curso" class="tab-pane fade">
+                  <div class="row">
+                     <br>
+                     <div class="col-md-12">
+                        <div class="pull-left">
+                           <p class = "admin_title">Cadastro de Curso:</p>
+                        </div>
+                        <div class="pull-right">
+                           <button class="btn btn-primary" id="btn_add_novo_curso" data-toggle="modal" data-target="#modal">Adicionar novo curso</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="table-responsive">
+                           <table id="curso_table" class="table table-bordered table-hover table-radius">
+                              <thead>
+                                 <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Duração</th>
+                                    <th>Instituição</th>
+                                    <th>Status</th>
+                                 </tr>
+                              </thead>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="aluno" class="tab-pane fade">
+                  <div class="row">
+                     <br>
+                     <div class="col-md-12">
+                        <div class="pull-left">
+                           <p class = "admin_title">Cadastro de Aluno:</p>
+                        </div>
+                        <div class="pull-right">
+                           <button class="btn btn-primary" id="btn_add_novo_aluno" data-toggle="modal" data-target="#modal">Adicionar novo aluno</button>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                     <div class="col-md-12">
+                        <div class="table-responsive">
+                           <table id="aluno_table" class="table table-bordered table-hover table-radius">
+                              <thead>
+                                 <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <th>Data nasc.</th>
+                                    <th>E-mail</th>
+                                    <th>Celular</th>
+                                    <th>Endereço</th>
+                                    <th>Bairro</th>
+                                    <th>Cidade</th>
+                                    <th>UF</th>
+                                    <th>Curso</th>
+                                    <th>Status</th>
+                                 </tr>
+                              </thead>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+         <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Sistema WEB Modal</h4>
+               </div>
+               <div class="modal-body">
+                  <form id= "form_um">
+                  <div class="row instituicao">
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="nome_instituicao">NOME</label>
+                           <input type="text" id="nome_instituicao" name="nome_instituicao" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="cnpj_instituicao">CNPJ</label>
+                           <input type="text" id="cnpj_instituicao" name="cnpj_instituicao" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="status_instituicao">Status</label>
+                           <select class='form-control select-chosen' id='status_instituicao' name='status_instituicao'>;
+                             <option value='Ativo'>Ativo</option>
+                             <option value='Inativo'>Inativo</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row curso">
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="nome_curso">NOME</label>
+                           <input type="text" id="nome_curso"  name="nome_curso" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="duracao_curso">Duração</label>
+                           <input type="text" id="duracao_curso" name="duracao_curso" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="status_curso">Status</label>
+                           <select class='form-control select-chosen' id='status_curso' name='status_curso'>;
+                             <option value='Ativo'>Ativo</option>
+                             <option value='Inativo'>Inativo</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row curso">
+                     <div class="col-sm-12">
+                        <div class="form-group">
+                           <label for="instituicao_curso">Instituição</label>
+                           <select class='form-control select-chosen' id='instituicao_curso' name='instituicao_curso'></select>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row aluno">
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="nome_aluno">Nome</label>
+                           <input type="text" id="nome_aluno" name="nome_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="cpf_aluno">CPF</label>
+                           <input type="text" id="cpf_aluno" maxlength="18" name="cpf_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="nascimento_aluno">Data Nasc</label>
+                           <input type="text" id="nascimento_aluno" name="nascimento_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row aluno">
+                     <div class="col-sm-6">
+                        <div class="form-group">
+                           <label for="email_aluno">E-mail</label>
+                           <input type="text" id="email_aluno" name="email_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-6">
+                        <div class="form-group">
+                           <label for="celular_aluno">Celular</label>
+                           <input type="text" id="celular_aluno" name="celular_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row aluno">
+                     <div class="col-sm-5">
+                        <div class="form-group">
+                           <label for="bairro_aluno">Bairro</label>
+                           <input type="text" id="bairro_aluno" name="bairro_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-2">
+                        <div class="form-group">
+                           <label for="uf_aluno">UF</label>
+                           <input type="text" id="uf_aluno" placeholder="UF" name="uf_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-5">
+                        <div class="form-group">
+                           <label for="cidade_aluno">Cidade</label>
+                           <input type="text" id="cidade_aluno" name="cidade_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row aluno">
+                     <div class="col-sm-10">
+                        <div class="form-group">
+                           <label for="endereco_aluno">Endereço</label>
+                           <input type="text" id="endereco_aluno"  name="endereco_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                     <div class="col-sm-2">
+                        <div class="form-group">
+                           <label for="numero_aluno">Número</label>
+                           <input type="text" id="numero_aluno" name="numero_aluno" class="form-control"/>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row aluno">
+                     <div class="col-sm-8">
+                        <div class="form-group">
+                           <label for="curso_aluno">Curso</label>
+                           <select class='form-control' id='curso_aluno' name ='curso_aluno'></select>
+                        </div>
+                     </div>
+                     <div class="col-sm-4">
+                        <div class="form-group">
+                           <label for="status_aluno">Status</label>
+                           <select class='form-control select-chosen' id='status_aluno' name='status_aluno'>;
+                             <option value='Ativo'>Ativo</option>
+                             <option value='Inativo'>Inativo</option>
+                           </select>
+                        </div>
+                     </div>
+                  </div>
+                  <input type="hidden" id="t" name="t" class="form-control"/>
+                  <input type="hidden" id="hidden_instituicao_id" name="hidden_instituicao_id" class="form-control"/>
+                  <input type="hidden" id="hidden_curso_id" name="hidden_curso_id" class="form-control"/>
+                  <input type="hidden" id="hidden_aluno_id" name="hidden_aluno_id" class="form-control"/>
+                  </form>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" id="btn-adicionar">Adicionar</button>
+                  <button type="button" class="btn btn-atention" id="btn-atualizar">Atualizar</button>
+                  <button type="button" class="btn btn-danger" id="btn-deletar">Excluir</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- // Modal -->
+      <!-- Javascript files-->
+      <script src="arquivos/jquery-1.11.3.min.js"></script>
+      <script src="arquivos/bootstrap.min.js"></script>
+      <script src="arquivos/jquery-ui.min.js"></script>
+      <script src="arquivos/script.js"></script>
+      <script src="arquivos/jquery.dataTables.min.js"></script>
+   </body>

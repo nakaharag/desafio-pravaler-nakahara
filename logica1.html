@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <body>
+      <p id="output"></p>
+      <script>
+         var x = "";
+         objProduto = {
+           "produto": [
+             {"descricao":"Banana", "quantidade":10, "preco": 2},
+             {"descricao":"Produto", "quantidade":5, "preco": 75},
+             {"descricao":"Bolacha", "quantidade":2, "preco": 80},
+             {"descricao":"Pera", "quantidade":7, "preco": 10},
+             {"descricao":"Meia", "quantidade":22, "preco": 20}
+           ]
+         }
+         for (i in objProduto.produto) {
+           qtd = objProduto.produto[i].quantidade;
+           preco = objProduto.produto[i].preco;
+           x += "Nome: " + objProduto.produto[i].descricao + "<br>";
+           x += "Quantidade: " + qtd + "<br>";
+           x += "Preço: " + preco + "<br>";
+           if(qtd <= 5){
+           	perc = 0.02;
+             desc = "2%";
+           } else if (qtd > 5 && qtd <= 10) {
+           	perc = 0.03;
+             desc = "3%";
+           } else {
+           	perc = 0.05;
+             desc = "5%";
+           }
+           x += "Desconto aplicado: " + desc + "<br>";
+           desconto = preco*perc;
+           x += "Total a pagar: " + ((preco-desconto)*qtd).toFixed(2) + "<br><br>";
+         }
+         document.getElementById("output").innerHTML = x;
+      </script>
+   </body>
+</html>
